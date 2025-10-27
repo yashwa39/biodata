@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREDATOR - Predictive Real-time Emergency Detection and Alert Response</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>PREDATOR</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#technology" class="nav-link">Technology</a></li>
+                <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
+                <li class="nav-item"><a href="#impact" class="nav-link">Impact</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="animated-grid"></div>
+            <div class="pulse-dots">
+                <div class="pulse-dot"></div>
+                <div class="pulse-dot"></div>
+                <div class="pulse-dot"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="highlight">PREDATOR</span><br>
+                    Millisecond Response to Save Lives
+                </h1>
+                <p class="hero-tagline">Predictive Real-time Emergency Detection and Alert Response</p>
+                <p class="hero-mission">Delivering accurate, personalized, and immediate hazard warnings within milliseconds</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="detection-animation">
+                    <div class="sensor-node"></div>
+                    <div class="signal-waves"></div>
+                    <div class="alert-badge">ALERT!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About PREDATOR</h2>
+                <p>Revolutionizing emergency response through predictive technology</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>What is PREDATOR?</h3>
+                    <p>PREDATOR is an innovative hazard detection and alert system that leverages edge-first processing and mobile device sensors to provide instant, personalized emergency warnings. Our system transforms everyday devices into powerful safety tools, creating a comprehensive network of hazard detection capabilities.</p>
+                    
+                    <h4>The Three Key Problems We Solve:</h4>
+                    <div class="problems-grid">
+                        <div class="problem-card">
+                            <div class="problem-icon"><i class="fas fa-clock"></i></div>
+                            <h5>Detection Delay</h5>
+                            <p>Traditional systems have significant response delays. PREDATOR reduces detection time to under 20 milliseconds.</p>
+                        </div>
+                        <div class="problem-card">
+                            <div class="problem-icon"><i class="fas fa-broadcast-tower"></i></div>
+                            <h5>Limited Reach</h5>
+                            <p>Conventional systems have limited coverage. Our edge-first approach ensures comprehensive detection across all areas.</p>
+                        </div>
+                        <div class="problem-card">
+                            <div class="problem-icon"><i class="fas fa-user-cog"></i></div>
+                            <h5>Weak Personalization</h5>
+                            <p>Generic alerts lack context. PREDATOR provides personalized warnings based on individual risk profiles and location.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="process-diagram">
+                        <div class="process-step">
+                            <div class="step-icon">📱</div>
+                            <h5>Mobile Sensors</h5>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-icon">⚡</div>
+                            <h5>Edge Processing</h5>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-icon">🚨</div>
+                            <h5>Instant Alert</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Scientific foundation meets cutting-edge technology</p>
+            </div>
+            
+            <div class="workflow-tabs">
+                <button class="tab-btn active" data-tab="foundation">Scientific Foundation</button>
+                <button class="tab-btn" data-tab="workflow">System Workflow</button>
+                <button class="tab-btn" data-tab="demo">Sensor Demo</button>
+            </div>
+
+            <div class="tab-content active" id="foundation">
+                <div class="foundation-grid">
+                    <div class="foundation-card">
+                        <div class="card-icon physics">⚛️</div>
+                        <h4>Physics</h4>
+                        <p>Wave propagation analysis, signal processing, and electromagnetic field detection for accurate hazard identification.</p>
+                    </div>
+                    <div class="foundation-card">
+                        <div class="card-icon chemistry">🧪</div>
+                        <h4>Chemistry</h4>
+                        <p>Advanced colorimetric sensors detect gas concentrations through chemical reactions with high precision and speed.</p>
+                    </div>
+                    <div class="foundation-card">
+                        <div class="card-icon electronics">⚡</div>
+                        <h4>Electronics</h4>
+                        <p>Low-power sensor design, signal amplification, and edge processing capabilities for real-time data analysis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="workflow">
+                <div class="workflow-diagram">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <h4>Sensor Detection</h4>
+                        <p>Mobile sensors continuously monitor environmental parameters</p>
+                    </div>
+                    <div class="workflow-arrow"></div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <h4>Edge Processing</h4>
+                        <p>AI models analyze data locally for instant response</p>
+                    </div>
+                    <div class="workflow-arrow"></div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <h4>Risk Assessment</h4>
+                        <p>Dynamic Risk Scoring (HVA 2.0) evaluates threat level</p>
+                    </div>
+                    <div class="workflow-arrow"></div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <h4>Alert Delivery</h4>
+                        <p>Personalized alerts sent via multiple channels</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="demo">
+                <div class="demo-container">
+                    <h4>Colorimetric Gas Sensor Demonstration</h4>
+                    <div class="sensor-demo">
+                        <div class="sensor-visual">
+                            <div class="sensor-strip" id="sensor-strip">
+                                <div class="color-indicator"></div>
+                            </div>
+                            <div class="concentration-meter">
+                                <div class="meter-fill" id="meter-fill"></div>
+                                <span class="meter-label">Gas Concentration</span>
+                            </div>
+                        </div>
+                        <div class="demo-controls">
+                            <button class="demo-btn" onclick="simulateDetection()">Simulate Detection</button>
+                            <div class="demo-results" id="demo-results"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Features</h2>
+                <p>Advanced capabilities for comprehensive emergency response</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h4>Instant Detection</h4>
+                    <p>Under 20 milliseconds response time for immediate hazard identification and alert delivery.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Multi-Hazard Detection</h4>
+                    <p>Comprehensive detection of gas leaks, fires, floods, earthquakes, and other environmental threats.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <h4>Personalized Alerts</h4>
+                    <p>Dynamic Risk Scoring (HVA 2.0) provides context-aware, personalized emergency notifications.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                    <h4>Multilingual Support</h4>
+                    <p>Support for 13+ languages ensuring accessibility for diverse communities worldwide.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-universal-access"></i></div>
+                    <h4>Accessibility Features</h4>
+                    <p>ASL videos, voice readouts, and text-to-speech for inclusive emergency communication.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-wifi"></i></div>
+                    <h4>Offline Capability</h4>
+                    <p>Edge-first processing ensures functionality even without internet connectivity.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-location-arrow"></i></div>
+                    <h4>UWB Directional Guidance</h4>
+                    <p>Ultra-wideband technology provides precise location accuracy and directional guidance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                    <h4>Smart Calibration</h4>
+                    <p>Automated sensor calibration ensures consistent accuracy across all detection scenarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technology Stack</h2>
+                <p>Interdisciplinary approach combining multiple scientific domains</p>
+            </div>
+            
+            <div class="tech-overview">
+                <div class="tech-subjects">
+                    <h3>Subject Integration</h3>
+                    <div class="subjects-grid">
+                        <div class="subject-card">
+                            <div class="subject-icon">⚡</div>
+                            <h4>Electronics</h4>
+                            <p>Sensor design, signal processing, edge computing</p>
+                        </div>
+                        <div class="subject-card">
+                            <div class="subject-icon">⚛️</div>
+                            <h4>Physics</h4>
+                            <p>Wave analysis, electromagnetic detection</p>
+                        </div>
+                        <div class="subject-card">
+                            <div class="subject-icon">🧪</div>
+                            <h4>Chemistry</h4>
+                            <p>Colorimetric sensors, chemical detection</p>
+                        </div>
+                        <div class="subject-card">
+                            <div class="subject-icon">📡</div>
+                            <h4>Communication</h4>
+                            <p>UWB, Wi-Fi, BLE protocols</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-details">
+                    <div class="tech-category">
+                        <h4>AI/ML Models</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">CNNs</span>
+                            <span class="tech-tag">LSTMs</span>
+                            <span class="tech-tag">MobileNet</span>
+                            <span class="tech-tag">edgeDRNN</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4>Communication Protocols</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Wi-Fi</span>
+                            <span class="tech-tag">BLE</span>
+                            <span class="tech-tag">UWB</span>
+                            <span class="tech-tag">LoRa</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4>Sensor Types</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Colorimetric</span>
+                            <span class="tech-tag">Temperature</span>
+                            <span class="tech-tag">Pressure</span>
+                            <span class="tech-tag">Motion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Team</h2>
+                <p>Collaborative structure driving innovation in emergency response</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-graduate"></i></div>
+                    <h4>Primary Researcher</h4>
+                    <p>Leads core research and development initiatives</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-microscope"></i></div>
+                    <h4>Research Assistant</h4>
+                    <p>Supports experimental design and data analysis</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-code"></i></div>
+                    <h4>Software Developer</h4>
+                    <p>Develops AI models and edge processing algorithms</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-microchip"></i></div>
+                    <h4>Hardware Engineer</h4>
+                    <p>Designs and optimizes sensor hardware systems</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-chart-line"></i></div>
+                    <h4>Data Analyst</h4>
+                    <p>Analyzes sensor data and performance metrics</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Safety Specialist</h4>
+                    <p>Ensures compliance with safety standards</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-users"></i></div>
+                    <h4>UX Designer</h4>
+                    <p>Designs intuitive user interfaces and experiences</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-test-tube"></i></div>
+                    <h4>Quality Assurance</h4>
+                    <p>Tests and validates system performance</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-project-diagram"></i></div>
+                    <h4>Project Manager</h4>
+                    <p>Coordinates development and deployment activities</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Learning Lead</h4>
+                    <p>Manages continuous learning and model updates</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-handshake"></i></div>
+                    <h4>Partnership Coordinator</h4>
+                    <p>Builds strategic partnerships and collaborations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Vision Section -->
+    <section id="impact" class="impact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Impact & Vision</h2>
+                <p>Transforming emergency response through technology</p>
+            </div>
+            
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="20">0</div>
+                    <div class="stat-label">Milliseconds Response Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="13">0</div>
+                    <div class="stat-label">Languages Supported</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">% Accuracy Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">Hours Offline Capability</div>
+                </div>
+            </div>
+
+            <div class="vision-content">
+                <div class="vision-text">
+                    <h3>Our Vision</h3>
+                    <p>To create a world where every individual has access to instant, personalized emergency warnings that can save lives. We envision a future where technology seamlessly integrates with daily life to provide comprehensive safety coverage.</p>
+                    
+                    <h4>Future Development Roadmap</h4>
+                    <ul class="roadmap-list">
+                        <li>Integration with smart city infrastructure</li>
+                        <li>Advanced AI models for predictive analytics</li>
+                        <li>Expanded sensor network coverage</li>
+                        <li>Integration with emergency services</li>
+                        <li>Mobile app development for consumer use</li>
+                    </ul>
+                </div>
+                <div class="testimonials">
+                    <h4>What People Are Saying</h4>
+                    <div class="testimonial-card">
+                        <p>"PREDATOR represents a breakthrough in emergency response technology. The millisecond response time could save countless lives."</p>
+                        <div class="testimonial-author">- Emergency Response Expert</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The personalized alert system addresses a critical gap in current emergency notification systems."</p>
+                        <div class="testimonial-author">- Safety Technology Consultant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch to learn more about PREDATOR</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Organization/Affiliation</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Interest Type *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Select an option</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="investment">Investment</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="media">Media</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    <div class="form-message" id="form-message"></div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@predator-safety.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Innovation District, Tech City</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="response-time">
+                        <p><i class="fas fa-clock"></i> We typically respond within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PREDATOR</h3>
+                    <p>Powered by Science, Driven by Safety</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PREDATOR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
