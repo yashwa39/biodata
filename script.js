@@ -19,18 +19,24 @@ if (cursorDot && cursorOutline) {
 }
 
 // Cursor hover effects
-const interactiveElements = document.querySelectorAll('button, a, .project-card, .score-row');
-interactiveElements.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        cursorOutline.style.opacity = '0.8';
+if (cursorOutline) {
+    const interactiveElements = document.querySelectorAll('button, a, .project-card, .score-row');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            if (cursorOutline) {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorOutline.style.opacity = '0.8';
+            }
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            if (cursorOutline) {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorOutline.style.opacity = '0.5';
+            }
+        });
     });
-    
-    element.addEventListener('mouseleave', () => {
-        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursorOutline.style.opacity = '0.5';
-    });
-});
+}
 
 // Screen Navigation System
 const screens = document.querySelectorAll('.screen');
@@ -306,8 +312,11 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Prevent default cursor on interactive elements
-interactiveElements.forEach(element => {
-    element.style.cursor = 'none';
+document.addEventListener('DOMContentLoaded', () => {
+    const interactiveElements = document.querySelectorAll('button, a, .project-card, .score-row');
+    interactiveElements.forEach(element => {
+        element.style.cursor = 'none';
+    });
 });
 
 // Add click ripple effect
