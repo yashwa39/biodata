@@ -103,20 +103,24 @@ function enhancedSwitchScreen(targetId) {
     }, 500);
 }
 
-// Button click handlers
-document.querySelectorAll('[data-target]').forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = button.getAttribute('data-target');
-        
-        // Button press animation
-        button.style.transform = 'translateY(4px)';
-        setTimeout(() => {
-            button.style.transform = '';
-        }, 150);
-        
-        // Navigate to target screen
-        switchScreen(target);
+// Button click handlers - wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-target]').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = button.getAttribute('data-target');
+            
+            // Button press animation
+            button.style.transform = 'translateY(4px)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+            
+            // Navigate to target screen
+            if (target) {
+                switchScreen(target);
+            }
+        });
     });
 });
 
