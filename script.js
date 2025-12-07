@@ -167,31 +167,7 @@ function screenWipe(targetId, direction = 'vertical') {
     }, 1000);
 }
 
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    const currentScreen = document.querySelector('.screen.active');
-    
-    if (e.key === 'Escape') {
-        switchScreen('main-menu');
-    }
-    
-    // Arrow key navigation (optional)
-    if (e.key === 'ArrowRight') {
-        const screens = ['main-menu', 'player-select', 'quest-log', 'high-scores', 'config'];
-        const currentIndex = screens.indexOf(currentScreen.id);
-        if (currentIndex < screens.length - 1) {
-            switchScreen(screens[currentIndex + 1]);
-        }
-    }
-    
-    if (e.key === 'ArrowLeft') {
-        const screens = ['main-menu', 'player-select', 'quest-log', 'high-scores', 'config'];
-        const currentIndex = screens.indexOf(currentScreen.id);
-        if (currentIndex > 0) {
-            switchScreen(screens[currentIndex - 1]);
-        }
-    }
-});
+// Keyboard navigation removed - mouse only
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
@@ -642,64 +618,8 @@ function enhancedSwitchScreen(targetId) {
     }, 500);
 }
 
-// Game Controller Navigation
-let currentNavIndex = 0;
-const navButtons = [];
-let navButtonsInitialized = false;
-
-function initGameControllerNav() {
-    if (navButtonsInitialized) return;
-    
-    const screens = ['main-menu', 'player-select', 'quest-log', 'high-scores', 'config'];
-    screens.forEach(screenId => {
-        const screen = document.getElementById(screenId);
-        if (screen) {
-            const buttons = screen.querySelectorAll('button[data-target], .nav-button, .back-button');
-            buttons.forEach(btn => {
-                if (!navButtons.includes(btn)) {
-                    navButtons.push(btn);
-                }
-            });
-        }
-    });
-    navButtonsInitialized = true;
-}
-
+// Debug Console Toggle (keep only tilde key for console)
 document.addEventListener('keydown', (e) => {
-    // Arrow key navigation
-    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-        e.preventDefault();
-        initGameControllerNav();
-        
-        if (e.key === 'ArrowUp') {
-            currentNavIndex = (currentNavIndex - 1 + navButtons.length) % navButtons.length;
-        } else {
-            currentNavIndex = (currentNavIndex + 1) % navButtons.length;
-        }
-        
-        // Highlight current button
-        navButtons.forEach((btn, idx) => {
-            if (idx === currentNavIndex) {
-                btn.style.boxShadow = '0 0 30px rgba(0, 255, 255, 0.8)';
-                btn.style.transform = 'scale(1.05)';
-            } else {
-                btn.style.boxShadow = '';
-                btn.style.transform = '';
-            }
-        });
-    }
-    
-    // Enter to activate
-    if (e.key === 'Enter' && navButtons[currentNavIndex]) {
-        e.preventDefault();
-        navButtons[currentNavIndex].click();
-    }
-    
-    // Escape for menu
-    if (e.key === 'Escape') {
-        enhancedSwitchScreen('main-menu');
-    }
-    
     // Tilde (~) for debug console
     if (e.key === '`' || e.key === '~') {
         if (debugConsole) {
@@ -729,7 +649,6 @@ document.addEventListener('mousemove', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     initParticleEmitter();
     initGlitchEffect();
-    initGameControllerNav();
     
     // Add initial console message
     if (consoleOutput) {
