@@ -41,10 +41,12 @@ function switchScreen(targetId) {
     if (!targetScreen || currentScreen === targetScreen) return;
     
     // Trigger screen flicker
-    screenFlicker.classList.add('active');
-    setTimeout(() => {
-        screenFlicker.classList.remove('active');
-    }, 100);
+    if (screenFlicker) {
+        screenFlicker.classList.add('active');
+        setTimeout(() => {
+            screenFlicker.classList.remove('active');
+        }, 100);
+    }
     
     // Pixel dissolve transition
     currentScreen.classList.add('transitioning-out');
@@ -58,6 +60,47 @@ function switchScreen(targetId) {
             animateStatBars();
         }
     }, 300);
+}
+
+// Data Stream Animation (needed before enhancedSwitchScreen)
+function showDataStream() {
+    const dataStream = document.getElementById('dataStream');
+    if (!dataStream) return;
+    
+    dataStream.classList.add('active');
+    dataStream.innerHTML = '';
+    
+    const hexChars = '0123456789ABCDEF';
+    const lines = 20;
+    
+    for (let i = 0; i < lines; i++) {
+        const line = document.createElement('div');
+        line.className = 'data-stream-line';
+        
+        let hexString = '';
+        for (let j = 0; j < 50; j++) {
+            hexString += hexChars[Math.floor(Math.random() * hexChars.length)];
+        }
+        
+        line.textContent = hexString;
+        line.style.top = (i * 5) + '%';
+        line.style.animationDuration = (Math.random() * 2 + 1) + 's';
+        line.style.animationDelay = (i * 0.1) + 's';
+        
+        dataStream.appendChild(line);
+    }
+    
+    setTimeout(() => {
+        dataStream.classList.remove('active');
+    }, 2000);
+}
+
+// Enhanced Screen Transitions with Data Stream
+function enhancedSwitchScreen(targetId) {
+    showDataStream();
+    setTimeout(() => {
+        switchScreen(targetId);
+    }, 500);
 }
 
 // Button click handlers
@@ -573,50 +616,6 @@ if (scanlineToggle) {
     });
 }
 
-// Data Stream Animation
-function showDataStream() {
-    const dataStream = document.getElementById('dataStream');
-    if (!dataStream) return;
-    
-    dataStream.classList.add('active');
-    dataStream.innerHTML = '';
-    
-    const hexChars = '0123456789ABCDEF';
-    const lines = 20;
-    
-    for (let i = 0; i < lines; i++) {
-        const line = document.createElement('div');
-        line.className = 'data-stream-line';
-        
-        let hexString = '';
-        for (let j = 0; j < 50; j++) {
-            hexString += hexChars[Math.floor(Math.random() * hexChars.length)];
-        }
-        
-        line.textContent = hexString;
-        line.style.top = (i * 5) + '%';
-        line.style.animationDuration = (Math.random() * 2 + 1) + 's';
-        line.style.animationDelay = (i * 0.1) + 's';
-        
-        dataStream.appendChild(line);
-    }
-    
-    setTimeout(() => {
-        dataStream.classList.remove('active');
-    }, 2000);
-}
-
-// Enhanced Screen Transitions with Data Stream
-// Store original switchScreen
-const originalSwitchScreen = switchScreen;
-
-// Create enhanced version
-function enhancedSwitchScreen(targetId) {
-    showDataStream();
-    setTimeout(() => {
-        originalSwitchScreen(targetId);
-    }, 500);
-}
 
 // Debug Console Toggle (keep only tilde key for console)
 document.addEventListener('keydown', (e) => {
