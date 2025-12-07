@@ -18,25 +18,14 @@
     <div class="scanlines"></div>
     <div class="screen-flicker"></div>
 
-    <!-- Background Music Player -->
-    <div class="music-player">
-        <audio id="bgMusic" loop preload="auto">
-            <!-- Primary: Use your own music file (bgmusic.mp3) for best experience -->
-            <source src="bgmusic.mp3" type="audio/mpeg">
-            <!-- Fallback: Royalty-free synthwave track from Pixabay -->
-            <!-- Download from: https://pixabay.com/music/search/synthwave/ -->
-            <source src="https://cdn.pixabay.com/download/audio/2023/10/27/audio_8a5f8e5c0c.mp3?filename=cyberpunk-synthwave-123456.mp3" type="audio/mpeg">
-        </audio>
-        <div class="music-controls">
-            <button id="musicToggle" class="music-button" title="Toggle Music">
-                <span class="music-icon">♪</span>
-            </button>
-            <div class="volume-control">
-                <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider">
-                <span class="volume-label">VOL</span>
-            </div>
-        </div>
-    </div>
+    <!-- Background Music Player (hidden, controlled from Config screen) -->
+    <audio id="bgMusic" loop preload="auto" style="display: none;">
+        <!-- Primary: Use your own music file (bgmusic.mp3) for best experience -->
+        <source src="bgmusic.mp3" type="audio/mpeg">
+        <!-- Fallback: Royalty-free synthwave track from Pixabay -->
+        <!-- Download from: https://pixabay.com/music/search/synthwave/ -->
+        <source src="https://cdn.pixabay.com/download/audio/2023/10/27/audio_8a5f8e5c0c.mp3?filename=cyberpunk-synthwave-123456.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Main Container -->
     <div class="arcade-container">

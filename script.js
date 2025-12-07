@@ -301,9 +301,7 @@ document.head.appendChild(style);
 
 // Background Music Controls
 const bgMusic = document.getElementById('bgMusic');
-const musicToggle = document.getElementById('musicToggle');
 const bgMusicToggle = document.getElementById('bgMusicToggle');
-const volumeSlider = document.getElementById('volumeSlider');
 const bgVolumeSlider = document.getElementById('bgVolumeSlider');
 const volumeValue = document.getElementById('volumeValue');
 const musicStatus = document.getElementById('musicStatus');
@@ -323,7 +321,6 @@ function toggleMusic() {
     if (isPlaying) {
         bgMusic.pause();
         isPlaying = false;
-        if (musicToggle) musicToggle.classList.remove('playing');
         if (musicStatus) musicStatus.textContent = 'PLAY';
         if (trackStatus) trackStatus.textContent = 'PAUSED';
     } else {
@@ -332,7 +329,6 @@ function toggleMusic() {
             // Music will play on first user interaction
         });
         isPlaying = true;
-        if (musicToggle) musicToggle.classList.add('playing');
         if (musicStatus) musicStatus.textContent = 'PAUSE';
         if (trackStatus) trackStatus.textContent = 'PLAYING';
     }
@@ -346,14 +342,7 @@ function updateVolume(value) {
     if (volumeValue) volumeValue.textContent = value + '%';
 }
 
-// Event listeners for music controls
-if (musicToggle) {
-    musicToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMusic();
-    });
-}
-
+// Event listeners for music controls (only from Config screen)
 if (bgMusicToggle) {
     bgMusicToggle.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -361,26 +350,9 @@ if (bgMusicToggle) {
     });
 }
 
-if (volumeSlider) {
-    volumeSlider.addEventListener('input', (e) => {
-        updateVolume(e.target.value);
-    });
-}
-
 if (bgVolumeSlider) {
     bgVolumeSlider.addEventListener('input', (e) => {
         updateVolume(e.target.value);
-        if (volumeSlider) volumeSlider.value = e.target.value;
-    });
-}
-
-// Sync sliders
-if (volumeSlider && bgVolumeSlider) {
-    volumeSlider.addEventListener('input', () => {
-        bgVolumeSlider.value = volumeSlider.value;
-    });
-    bgVolumeSlider.addEventListener('input', () => {
-        volumeSlider.value = bgVolumeSlider.value;
     });
 }
 
