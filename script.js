@@ -37,10 +37,22 @@ const screens = document.querySelectorAll('.screen');
 const screenFlicker = document.querySelector('.screen-flicker');
 
 function switchScreen(targetId) {
+    console.log('switchScreen called with:', targetId);
     const currentScreen = document.querySelector('.screen.active');
     const targetScreen = document.getElementById(targetId);
     
-    if (!targetScreen || currentScreen === targetScreen) return;
+    console.log('Current screen:', currentScreen?.id);
+    console.log('Target screen:', targetScreen?.id);
+    
+    if (!targetScreen) {
+        console.error('Target screen not found:', targetId);
+        return;
+    }
+    
+    if (currentScreen === targetScreen) {
+        console.log('Already on target screen');
+        return;
+    }
     
     // Trigger screen flicker
     if (screenFlicker) {
@@ -51,11 +63,16 @@ function switchScreen(targetId) {
     }
     
     // Pixel dissolve transition
-    currentScreen.classList.add('transitioning-out');
+    if (currentScreen) {
+        currentScreen.classList.add('transitioning-out');
+    }
     
     setTimeout(() => {
-        currentScreen.classList.remove('active', 'transitioning-out');
+        if (currentScreen) {
+            currentScreen.classList.remove('active', 'transitioning-out');
+        }
         targetScreen.classList.add('active');
+        console.log('Screen switched to:', targetId);
         
         // Animate stat bars when entering player-select
         if (targetId === 'player-select') {
