@@ -621,36 +621,48 @@ if (consoleInput) {
     });
 }
 
-// Theme Switcher
-const themeButtons = document.querySelectorAll('.theme-button');
-themeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const theme = button.getAttribute('data-theme');
-        document.body.className = '';
-        if (theme !== 'cyan') {
-            document.body.classList.add(`theme-${theme}`);
-        }
-        themeButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+// Theme Switcher and Scanline Toggle - Initialize when DOM is ready
+function initScreenSettings() {
+    // Theme Switcher
+    const themeButtons = document.querySelectorAll('.theme-button');
+    themeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const theme = button.getAttribute('data-theme');
+            document.body.className = '';
+            if (theme !== 'cyan') {
+                document.body.classList.add(`theme-${theme}`);
+            }
+            themeButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            console.log('Theme changed to:', theme);
+        });
     });
-});
 
-// Scanline Toggle
-const scanlineToggle = document.getElementById('scanlineToggle');
-const scanlineStatus = document.getElementById('scanlineStatus');
-let scanlinesEnabled = true;
+    // Scanline Toggle
+    const scanlineToggle = document.getElementById('scanlineToggle');
+    const scanlineStatus = document.getElementById('scanlineStatus');
+    let scanlinesEnabled = true;
 
-if (scanlineToggle) {
-    scanlineToggle.addEventListener('click', () => {
-        scanlinesEnabled = !scanlinesEnabled;
-        if (scanlinesEnabled) {
-            document.body.classList.remove('scanlines-off');
-            if (scanlineStatus) scanlineStatus.textContent = 'ON';
-        } else {
-            document.body.classList.add('scanlines-off');
-            if (scanlineStatus) scanlineStatus.textContent = 'OFF';
-        }
-    });
+    if (scanlineToggle) {
+        scanlineToggle.addEventListener('click', () => {
+            scanlinesEnabled = !scanlinesEnabled;
+            if (scanlinesEnabled) {
+                document.body.classList.remove('scanlines-off');
+                if (scanlineStatus) scanlineStatus.textContent = 'ON';
+            } else {
+                document.body.classList.add('scanlines-off');
+                if (scanlineStatus) scanlineStatus.textContent = 'OFF';
+            }
+            console.log('Scanlines:', scanlinesEnabled ? 'ON' : 'OFF');
+        });
+    }
+}
+
+// Initialize screen settings when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScreenSettings);
+} else {
+    initScreenSettings();
 }
 
 
