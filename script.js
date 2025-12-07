@@ -2,42 +2,6 @@
 // CYBER-SYNTHESIZER PORTFOLIO INTERACTIVITY
 // ============================================
 
-// Custom Cursor Movement
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-
-if (cursorDot && cursorOutline) {
-    document.addEventListener('mousemove', (e) => {
-        cursorDot.style.left = e.clientX + 'px';
-        cursorDot.style.top = e.clientY + 'px';
-        
-        setTimeout(() => {
-            cursorOutline.style.left = e.clientX + 'px';
-            cursorOutline.style.top = e.clientY + 'px';
-        }, 50);
-    });
-}
-
-// Cursor hover effects
-if (cursorOutline) {
-    const interactiveElements = document.querySelectorAll('button, a, .project-card, .score-row');
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            if (cursorOutline) {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorOutline.style.opacity = '0.8';
-            }
-        });
-        
-        element.addEventListener('mouseleave', () => {
-            if (cursorOutline) {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorOutline.style.opacity = '0.5';
-            }
-        });
-    });
-}
-
 // Screen Navigation System
 const screens = document.querySelectorAll('.screen');
 const screenFlicker = document.querySelector('.screen-flicker');
@@ -311,13 +275,7 @@ document.addEventListener('mousemove', (e) => {
     // Parallax effect would be applied here if needed
 });
 
-// Prevent default cursor on interactive elements
-document.addEventListener('DOMContentLoaded', () => {
-    const interactiveElements = document.querySelectorAll('button, a, .project-card, .score-row');
-    interactiveElements.forEach(element => {
-        element.style.cursor = 'none';
-    });
-});
+// Removed custom cursor code
 
 // Add click ripple effect
 function createRipple(event) {
