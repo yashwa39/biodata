@@ -106,11 +106,16 @@ function enhancedSwitchScreen(targetId) {
 }
 
 // Button click handlers - wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-target]').forEach(button => {
+function initButtonHandlers() {
+    const buttons = document.querySelectorAll('[data-target]');
+    console.log('Found buttons:', buttons.length);
+    
+    buttons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const target = button.getAttribute('data-target');
+            console.log('Button clicked, target:', target);
             
             // Button press animation
             button.style.transform = 'translateY(4px)';
@@ -120,11 +125,20 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Navigate to target screen
             if (target) {
+                console.log('Calling switchScreen with:', target);
                 switchScreen(target);
             }
         });
     });
-});
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initButtonHandlers);
+} else {
+    // DOM is already ready
+    initButtonHandlers();
+}
 
 // Animate stat bars on load
 function animateStatBars() {
