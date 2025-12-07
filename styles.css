@@ -940,6 +940,226 @@ body::after {
     }
 }
 
+/* Music Player Styles */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(26, 26, 46, 0.9);
+    border: 2px solid var(--neon-cyan);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.music-button {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(145deg, #1a1a2e, #0D0D15);
+    border: 2px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.music-button.playing {
+    color: var(--neon-green);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.music-icon {
+    display: block;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.volume-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.volume-slider {
+    width: 100px;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--neon-cyan);
+    transition: all 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    background: var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green);
+    transform: scale(1.2);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: var(--neon-cyan);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--neon-cyan);
+    transition: all 0.2s;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    background: var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green);
+    transform: scale(1.2);
+}
+
+/* Background Music Controls in Config */
+.bg-music-controls {
+    margin-bottom: 2rem;
+}
+
+.music-control-panel {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--neon-magenta);
+    padding: 1.5rem;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+}
+
+.control-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.control-label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.small-button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    padding: 0.6rem 1.2rem;
+}
+
+.volume-control-panel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    max-width: 300px;
+}
+
+.volume-slider-panel {
+    flex: 1;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-slider-panel::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.volume-slider-panel::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--neon-cyan);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.volume-value {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.8rem;
+    color: var(--neon-cyan);
+    min-width: 40px;
+    text-align: right;
+    font-weight: 700;
+}
+
+.music-info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.info-text {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.playlist-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: var(--neon-magenta);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--neon-magenta);
+    text-align: center;
+}
+
 /* Clean UI Enhancements */
 * {
     -webkit-font-smoothing: antialiased;

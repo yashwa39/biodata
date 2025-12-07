@@ -18,6 +18,26 @@
     <div class="scanlines"></div>
     <div class="screen-flicker"></div>
 
+    <!-- Background Music Player -->
+    <div class="music-player">
+        <audio id="bgMusic" loop preload="auto">
+            <!-- Primary: Use your own music file (bgmusic.mp3) for best experience -->
+            <source src="bgmusic.mp3" type="audio/mpeg">
+            <!-- Fallback: Royalty-free synthwave track from Pixabay -->
+            <!-- Download from: https://pixabay.com/music/search/synthwave/ -->
+            <source src="https://cdn.pixabay.com/download/audio/2023/10/27/audio_8a5f8e5c0c.mp3?filename=cyberpunk-synthwave-123456.mp3" type="audio/mpeg">
+        </audio>
+        <div class="music-controls">
+            <button id="musicToggle" class="music-button" title="Toggle Music">
+                <span class="music-icon">♪</span>
+            </button>
+            <div class="volume-control">
+                <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider">
+                <span class="volume-label">VOL</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Container -->
     <div class="arcade-container">
         <!-- Main Menu Screen -->
@@ -231,7 +251,29 @@
                 </div>
                 <div class="jukebox-section">
                     <h3 class="jukebox-title">SOUNDTRACK CONFIG</h3>
-                    <div class="spotify-embed-container">
+                    <div class="bg-music-controls">
+                        <div class="music-control-panel">
+                            <div class="control-row">
+                                <span class="control-label">BACKGROUND MUSIC:</span>
+                                <button id="bgMusicToggle" class="arcade-button small-button">
+                                    <span class="button-text" id="musicStatus">PLAY</span>
+                                </button>
+                            </div>
+                            <div class="control-row">
+                                <span class="control-label">VOLUME:</span>
+                                <div class="volume-control-panel">
+                                    <input type="range" id="bgVolumeSlider" min="0" max="100" value="50" class="volume-slider-panel">
+                                    <span class="volume-value" id="volumeValue">50%</span>
+                                </div>
+                            </div>
+                            <div class="music-info">
+                                <p class="info-text">> TRACK: CYBER-SYNTH WAVEFORM</p>
+                                <p class="info-text">> STATUS: <span id="trackStatus">READY</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spotify-embed-container" style="margin-top: 2rem;">
+                        <h4 class="playlist-title">EXTERNAL PLAYLIST</h4>
                         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZEVXdhFpNs4gXkQ5?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </div>

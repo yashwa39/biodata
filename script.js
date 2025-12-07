@@ -299,7 +299,128 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Background Music Controls
+const bgMusic = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
+const bgMusicToggle = document.getElementById('bgMusicToggle');
+const volumeSlider = document.getElementById('volumeSlider');
+const bgVolumeSlider = document.getElementById('bgVolumeSlider');
+const volumeValue = document.getElementById('volumeValue');
+const musicStatus = document.getElementById('musicStatus');
+const trackStatus = document.getElementById('trackStatus');
+
+let isPlaying = false;
+
+// Initialize volume
+if (bgMusic) {
+    bgMusic.volume = 0.5; // 50% volume by default
+}
+
+// Toggle music playback
+function toggleMusic() {
+    if (!bgMusic) return;
+    
+    if (isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        if (musicToggle) musicToggle.classList.remove('playing');
+        if (musicStatus) musicStatus.textContent = 'PLAY';
+        if (trackStatus) trackStatus.textContent = 'PAUSED';
+    } else {
+        bgMusic.play().catch(err => {
+            console.log('Autoplay prevented. User interaction required.');
+            // Music will play on first user interaction
+        });
+        isPlaying = true;
+        if (musicToggle) musicToggle.classList.add('playing');
+        if (musicStatus) musicStatus.textContent = 'PAUSE';
+        if (trackStatus) trackStatus.textContent = 'PLAYING';
+    }
+}
+
+// Volume control
+function updateVolume(value) {
+    if (!bgMusic) return;
+    const volume = value / 100;
+    bgMusic.volume = volume;
+    if (volumeValue) volumeValue.textContent = value + '%';
+}
+
+// Event listeners for music controls
+if (musicToggle) {
+    musicToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMusic();
+    });
+}
+
+if (bgMusicToggle) {
+    bgMusicToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMusic();
+    });
+}
+
+if (volumeSlider) {
+    volumeSlider.addEventListener('input', (e) => {
+        updateVolume(e.target.value);
+    });
+}
+
+if (bgVolumeSlider) {
+    bgVolumeSlider.addEventListener('input', (e) => {
+        updateVolume(e.target.value);
+        if (volumeSlider) volumeSlider.value = e.target.value;
+    });
+}
+
+// Sync sliders
+if (volumeSlider && bgVolumeSlider) {
+    volumeSlider.addEventListener('input', () => {
+        bgVolumeSlider.value = volumeSlider.value;
+    });
+    bgVolumeSlider.addEventListener('input', () => {
+        volumeSlider.value = bgVolumeSlider.value;
+    });
+}
+
+// Handle music state changes
+if (bgMusic) {
+    bgMusic.addEventListener('play', () => {
+        isPlaying = true;
+        if (musicToggle) musicToggle.classList.add('playing');
+        if (musicStatus) musicStatus.textContent = 'PAUSE';
+        if (trackStatus) trackStatus.textContent = 'PLAYING';
+    });
+    
+    bgMusic.addEventListener('pause', () => {
+        isPlaying = false;
+        if (musicToggle) musicToggle.classList.remove('playing');
+        if (musicStatus) musicStatus.textContent = 'PLAY';
+        if (trackStatus) trackStatus.textContent = 'PAUSED';
+    });
+    
+    bgMusic.addEventListener('loadeddata', () => {
+        if (trackStatus) trackStatus.textContent = 'READY';
+    });
+    
+    bgMusic.addEventListener('error', () => {
+        if (trackStatus) trackStatus.textContent = 'ERROR - ADD MUSIC FILE';
+        console.warn('Music file not found. Add bgmusic.mp3 to the root directory or update the audio source.');
+    });
+}
+
+// Auto-play on first user interaction (to comply with browser autoplay policies)
+let hasInteracted = false;
+document.addEventListener('click', () => {
+    if (!hasInteracted && bgMusic && !isPlaying) {
+        hasInteracted = true;
+        // Don't auto-play, let user control it
+    }
+}, { once: true });
+
 // Console log for debugging
 console.log('%cCYBER-SYNTHESIZER PORTFOLIO', 'color: #00FFFF; font-size: 20px; font-weight: bold;');
 console.log('%cSystems Ready. All modules loaded.', 'color: #00FF00; font-size: 12px;');
+console.log('%cMusic Controls: Click the music button to start playback', 'color: #FF00FF; font-size: 12px;');
 
