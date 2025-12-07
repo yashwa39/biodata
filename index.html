@@ -17,6 +17,31 @@
     <!-- CRT Scanlines Overlay -->
     <div class="scanlines"></div>
     <div class="screen-flicker"></div>
+    
+    <!-- Particle Emitter Background -->
+    <div class="particle-container" id="particleContainer"></div>
+    
+    <!-- CRT Lens Effect Container -->
+    <div class="crt-lens"></div>
+    
+    <!-- Debug Console -->
+    <div class="debug-console" id="debugConsole">
+        <div class="console-header">
+            <span class="console-title">DEBUG MODE</span>
+            <button class="console-close" id="consoleClose">×</button>
+        </div>
+        <div class="console-output" id="consoleOutput">
+            <div class="console-line">> SYSTEM READY</div>
+            <div class="console-line">> TYPE 'HELP' FOR COMMANDS</div>
+        </div>
+        <div class="console-input-container">
+            <span class="console-prompt">></span>
+            <input type="text" class="console-input" id="consoleInput" placeholder="Enter command..." autocomplete="off">
+        </div>
+    </div>
+    
+    <!-- Data Stream Overlay (for loading) -->
+    <div class="data-stream" id="dataStream"></div>
 
     <!-- Background Music Player (hidden, controlled from Config screen) -->
     <audio id="bgMusic" loop preload="auto" style="display: none;">
@@ -279,6 +304,31 @@
                             <div class="music-info">
                                 <p class="info-text">> TRACK: CYBER-SYNTH WAVEFORM</p>
                                 <p class="info-text">> STATUS: <span id="trackStatus">READY</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-settings">
+                        <h3 class="settings-title">SCREEN SETTINGS</h3>
+                        <div class="settings-panel">
+                            <div class="control-row">
+                                <span class="control-label">COLOR THEME:</span>
+                                <div class="theme-buttons">
+                                    <button class="theme-button active" data-theme="cyan" title="Neon Blue">BLUE</button>
+                                    <button class="theme-button" data-theme="green" title="Neon Green">GREEN</button>
+                                    <button class="theme-button" data-theme="red" title="High Contrast Red">RED</button>
+                                </div>
+                            </div>
+                            <div class="control-row">
+                                <span class="control-label">SCANLINES:</span>
+                                <button id="scanlineToggle" class="arcade-button small-button">
+                                    <span class="button-text" id="scanlineStatus">ON</span>
+                                </button>
+                            </div>
+                            <div class="control-row">
+                                <span class="control-label">DEBUG CONSOLE:</span>
+                                <button id="debugToggle" class="arcade-button small-button">
+                                    <span class="button-text">OPEN</span>
+                                </button>
                             </div>
                         </div>
                     </div>
