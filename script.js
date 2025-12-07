@@ -249,6 +249,172 @@ function screenWipe(targetId, direction = 'vertical') {
 
 // Keyboard navigation removed - mouse only
 
+// ============================================
+// SYSTEM NAVIGATOR MASCOT
+// ============================================
+
+const mascot = document.getElementById('mascot');
+const mascotSprite = document.getElementById('mascotSprite');
+const speechBubble = document.getElementById('speechBubble');
+
+let mascotX = window.innerWidth / 2;
+let mascotY = window.innerHeight / 2;
+let targetX = mascotX;
+let targetY = mascotY;
+let idleTimer = null;
+let isIdle = false;
+let isReacting = false;
+
+// Smooth cursor following with interpolation
+function updateMascotPosition() {
+    if (!mascot) return;
+    
+    // Smooth interpolation (easing)
+    const speed = 0.1;
+    mascotX += (targetX - mascotX) * speed;
+    mascotY += (targetY - mascotY) * speed;
+    
+    mascot.style.left = mascotX + 'px';
+    mascot.style.top = mascotY + 'px';
+    
+    // Check if moving
+    const distance = Math.sqrt(
+        Math.pow(targetX - mascotX, 2) + Math.pow(targetY - mascotY, 2)
+    );
+    
+    if (distance > 5 && !isIdle && !isReacting) {
+        mascotSprite.classList.add('walking');
+        mascotSprite.classList.remove('idle');
+    } else if (distance <= 5 && !isIdle && !isReacting) {
+        mascotSprite.classList.remove('walking');
+    }
+    
+    requestAnimationFrame(updateMascotPosition);
+}
+
+// Mouse tracking
+document.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    
+    // Reset idle timer
+    if (idleTimer) {
+        clearTimeout(idleTimer);
+    }
+    
+    if (isIdle) {
+        isIdle = false;
+        mascotSprite.classList.remove('idle');
+    }
+    
+    // Set idle timer (5 seconds)
+    idleTimer = setTimeout(() => {
+        isIdle = true;
+        mascotSprite.classList.remove('walking');
+        mascotSprite.classList.add('idle');
+    }, 5000);
+});
+
+// Reaction to button clicks
+function triggerMascotReaction(message = '!') {
+    if (!mascotSprite || !speechBubble || isReacting) return;
+    
+    isReacting = true;
+    mascotSprite.classList.add('reacting');
+    speechBubble.textContent = message;
+    speechBubble.classList.add('show');
+    
+    setTimeout(() => {
+        mascotSprite.classList.remove('reacting');
+        speechBubble.classList.remove('show');
+        isReacting = false;
+    }, 1000);
+}
+
+// Listen for button clicks on navigation buttons
+document.addEventListener('click', (e) => {
+    if (e.target.closest('[data-target]') || e.target.closest('.nav-button') || e.target.closest('.back-button')) {
+        const messages = ['!', '↑', '✓', 'GO!', '→'];
+        const message = messages[Math.floor(Math.random() * messages.length)];
+        triggerMascotReaction(message);
+    }
+});
+
+// Start mascot animation loop
+updateMascotPosition();
+
+// ============================================
+// COIN SLOT ACTIVATION
+// ============================================
+
+const coinSlot = document.getElementById('coinSlot');
+const coinSound = document.getElementById('coinSound');
+const coinCounter = document.getElementById('coinCounter');
+
+let coinClickCount = 0;
+let coinClickTimer = null;
+let rapidClickCount = 0;
+
+function playCoinSound() {
+    if (coinSound) {
+        coinSound.currentTime = 0;
+        coinSound.play().catch(err => {
+            console.log('Could not play coin sound:', err);
+        });
+    }
+}
+
+function activateNeonBoost() {
+    document.body.classList.add('neon-boost');
+    setTimeout(() => {
+        document.body.classList.remove('neon-boost');
+    }, 3000);
+}
+
+function handleCoinClick() {
+    // Play sound
+    playCoinSound();
+    
+    // Activate visual boost
+    activateNeonBoost();
+    
+    // Increment counter
+    coinClickCount++;
+    
+    // Rapid click detection
+    rapidClickCount++;
+    
+    if (coinClickTimer) {
+        clearTimeout(coinClickTimer);
+    }
+    
+    coinClickTimer = setTimeout(() => {
+        if (rapidClickCount >= 5) {
+            // Extra life granted!
+            if (coinCounter) {
+                coinCounter.textContent = 'EXTRA LIFE GRANTED!';
+                coinCounter.style.animation = 'neonBoost 2s ease';
+                setTimeout(() => {
+                    coinCounter.textContent = '';
+                }, 2000);
+            }
+        }
+        rapidClickCount = 0;
+    }, 2000);
+    
+    // Update counter display
+    if (coinCounter) {
+        coinCounter.textContent = `COINS: ${coinClickCount}`;
+        setTimeout(() => {
+            coinCounter.textContent = '';
+        }, 2000);
+    }
+}
+
+if (coinSlot) {
+    coinSlot.addEventListener('click', handleCoinClick);
+}
+
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial screen
@@ -273,6 +439,14 @@ document.addEventListener('DOMContentLoaded', () => {
             mainTitle.style.opacity = '1';
             mainTitle.style.transform = 'translateY(0)';
         }, 200);
+    }
+    
+    // Initialize mascot position
+    if (mascot) {
+        mascotX = window.innerWidth / 2;
+        mascotY = window.innerHeight / 2;
+        targetX = mascotX;
+        targetY = mascotY;
     }
 });
 

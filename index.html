@@ -19,6 +19,29 @@
     <div class="screen-flicker"></div>
     <div class="crt-vignette"></div>
     
+    <!-- System Navigator Mascot -->
+    <div class="mascot-container" id="mascot">
+        <div class="mascot-sprite" id="mascotSprite">
+            <div class="mascot-body">🤖</div>
+        </div>
+        <div class="mascot-speech-bubble" id="speechBubble"></div>
+    </div>
+    
+    <!-- Coin Slot -->
+    <div class="coin-slot-container">
+        <button class="coin-slot" id="coinSlot" title="Insert Coin">
+            <div class="coin-slot-hole"></div>
+            <div class="coin-slot-label">INSERT COIN</div>
+        </button>
+        <div class="coin-counter" id="coinCounter"></div>
+    </div>
+    
+    <!-- Audio for coin sound -->
+    <audio id="coinSound" preload="auto">
+        <source src="coin.mp3" type="audio/mpeg">
+        <source src="coin.wav" type="audio/wav">
+    </audio>
+    
     <!-- Particle Emitter Background -->
     <div class="particle-container" id="particleContainer"></div>
     
