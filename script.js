@@ -667,19 +667,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Parallax Effect on Mouse Move
-let mouseX = 0;
-let mouseY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5) * 20;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 20;
-    
-    const container = document.querySelector('.arcade-container');
-    if (container) {
-        container.style.transform = `translate(${mouseX * 0.1}px, ${mouseY * 0.1}px)`;
-    }
-});
+// Parallax Effect removed - keeping simple version
 
 // Initialize all features
 document.addEventListener('DOMContentLoaded', () => {
