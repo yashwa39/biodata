@@ -724,6 +724,33 @@ body::after {
     font-weight: 600;
 }
 
+/* Empty Scores State */
+.empty-scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    text-align: center;
+    padding: 3rem;
+}
+
+.empty-message {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+    margin-bottom: 1rem;
+    animation: blink 2s infinite;
+}
+
+.empty-submessage {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
 /* Config/Contact Screen */
 .config-content {
     display: grid;
