@@ -855,17 +855,7 @@ document.addEventListener('keydown', (e) => {
 
 // Parallax Effect removed - keeping simple version
 
-// Initialize all features
-document.addEventListener('DOMContentLoaded', () => {
-    initParticleEmitter();
-    initGlitchEffect();
-    
-    // Add initial console message
-    if (consoleOutput) {
-        addConsoleLine('> System initialized.', '#00FF00');
-        addConsoleLine('> Press ~ to toggle debug console', '#00FFFF');
-    }
-});
+// Cleanup - removed advanced features initialization
 
 // Console log for debugging
 console.log('%cCYBER-SYNTHESIZER PORTFOLIO', 'color: #00FFFF; font-size: 20px; font-weight: bold;');
